@@ -77,3 +77,9 @@ export const mockNotifications = [
   { id: 3, text: 'Your Nike Dunk Low Panda scan has been viewed 50 times.', time: '1h ago' },
   { id: 4, text: 'Welcome to nSneaker! Get started by scanning a shoe.', time: '1d ago' },
 ];
+
+export const mockFriends = [
+  { id: 1, name: 'SneakerKing', image: 'https://placehold.co/100x100/6D8AAF/F7F7F7?text=SK' },
+  { id: 2, name: 'KicksMaster', image: 'https://placehold.co/100x100/AF6D8A/F7F7F7?text=KM' },
+  { id: 3, name: 'SoleSeeker', image: 'https://placehold.co/100x100/8AAF6D/F7F7F7?text=SS' },
+];

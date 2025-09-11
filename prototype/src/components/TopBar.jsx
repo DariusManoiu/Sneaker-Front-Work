@@ -1,8 +1,10 @@
+// src/components/TopBar.jsx
+
 import React from 'react';
 import '../App.css';
 
-// Accept the onNotificationsClick prop from App.jsx
-export default function TopBar({ onNotificationsClick }) {
+// Accept both onNotificationsClick and onFriendsClick props
+export default function TopBar({ onNotificationsClick, onFriendsClick }) {
   return (
     <div className="top-bar">
       <div className="user-info">
@@ -14,8 +16,13 @@ export default function TopBar({ onNotificationsClick }) {
         </div>
       </div>
       <div className="top-right-buttons-group">
-        <button className="top-icon-button" id="social-button" aria-label="Social Feed"></button>
-        {/* The onClick handler now calls the function from props */}
+        {/* The onClick handler now calls the onFriendsClick function */}
+        <button
+          className="top-icon-button"
+          id="social-button"
+          aria-label="Friends List"
+          onClick={onFriendsClick}
+        ></button>
         <button
           className="top-icon-button"
           id="notifications-button"

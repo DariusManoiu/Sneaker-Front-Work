@@ -9,7 +9,8 @@ import CameraPanel from "./components/panels/CameraPanel";
 import SettingsPanel from "./components/panels/SettingsPanel";
 import SignInScreen from "./components/SignInScreen";
 import NotificationsPanel from "./components/NotificationsPanel"; 
-import { mockNotifications } from "./data"; // Import the notification data
+import FriendsListPanel from "./components/FriendsListPanel"; // Import the new panel
+import { mockNotifications, mockFriends } from "./data"; // Import friends data
 import "./App.css";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
   const [activePanelIndex, setActivePanelIndex] = useState(2);
   const panelOrder = ["badges", "collection", "home", "camera", "settings"];
   const [showNotifications, setShowNotifications] = useState(false);
+  const [showFriendsList, setShowFriendsList] = useState(false);
 
   // Refs to track swipe/drag gesture
   const dragStartRef = useRef(0);
@@ -74,7 +76,8 @@ function App() {
         // If signed in, show the main app interface
         <>
           {/* Pass the function to open the panel to the TopBar */}
-          <TopBar onNotificationsClick={() => setShowNotifications(true)} />
+          <TopBar onNotificationsClick={() => setShowNotifications(true)} 
+          onFriendsClick={() => setShowFriendsList(true)}/>
           <div
             id="swipeContainer"
             className="swipe-container"
@@ -108,6 +111,12 @@ function App() {
             show={showNotifications}
             onClose={() => setShowNotifications(false)}
             notifications={mockNotifications}
+          />
+          {/* Render the FriendsListPanel */}
+          <FriendsListPanel
+            show={showFriendsList}
+            onClose={() => setShowFriendsList(false)}
+            friends={mockFriends}
           />
         </>
       ) : (
